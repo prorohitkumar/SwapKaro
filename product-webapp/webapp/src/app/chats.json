@@ -1,0 +1,101 @@
+{
+  "productId": 1,
+  "productOwner": "vishal@gmail.com",
+  "buyersChat": [
+    {
+      "buyerEmail": "rohit@gmail.com",
+      "messageBody": [
+        {
+          "message": "Hi..",
+          "messageSendOn": 1142631782189,
+          "messageSendBy": "rohit@gmail.com"
+        },
+        {
+          "message": "You there ?",
+          "messageSendOn": 1142631782189,
+          "messageSendBy": "rohit@gmail.com"
+        },
+        {
+          "message": "Hi Vijay",
+          "messageSendOn": 1142631782189,
+          "messageSendBy": "vishal@gmail.com"
+        },
+        {
+          "message": "I am here only.",
+          "messageSendOn": 1142631782189,
+          "messageSendBy": "vishal@gmail.com"
+        },
+        {
+          "message": "What are you doing",
+          "messageSendOn": 1142631782189,
+          "messageSendBy": "vishal@gmail.com"
+        }
+      ]
+    },
+    {
+      "buyerEmail": "rahul@gmail.com",
+      "messageBody": [
+        {
+          "message": "Hi..",
+          "messageSendOn": 1142631782189,
+          "messageSendBy": "rahul@gmail.com"
+        },
+        {
+          "message": "You there?",
+          "messageSendOn": 1142631782189,
+          "messageSendBy": "vishal@gmail.com"
+        },
+        {
+          "message": "Hi Rahul",
+          "messageSendOn": 1142631782189,
+          "messageSendBy": "vishal@gmail.com"
+        },
+        {
+          "message": "I am here only.",
+          "messageSendOn": 1142631782189,
+          "messageSendBy": "vishal@gmail.com"
+        },
+        {
+          "message": "What are you doing",
+          "messageSendOn": 1142631782189,
+          "messageSendBy": "rahul@gmail.com"
+        },
+        {
+          "message": "What are you doing",
+          "messageSendOn": 1142631782189,
+          "messageSendBy": "rahul@gmail.com"
+        },
+        {
+          "message": "What are you doing",
+          "messageSendOn": 1142631782189,
+          "messageSendBy": "rahul@gmail.com"
+        },
+        {
+          "message": "What are you doing",
+          "messageSendOn": 1142631782189,
+          "messageSendBy": "rahul@gmail.com"
+        },
+        {
+          "message": "What are you doing",
+          "messageSendOn": 1142631782189,
+          "messageSendBy": "rahul@gmail.com"
+        }
+      ]
+    },
+    {
+      "buyerEmail": "mohit@gmail.com",
+      "messageBody": [
+        {
+          "message": "Hi..",
+          "messageSendOn": 1142631782189,
+          "messageSendBy": "mohit@gmail.com"
+        },
+        {
+          "message": "You there?",
+          "messageSendOn": 1142631782189,
+          "messageSendBy": "mohit@gmail.com"
+        }
+      ]
+    }
+  ]
+}

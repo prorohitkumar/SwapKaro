@@ -1,0 +1,354 @@
+<div fxLayout="row">
+  <div fxFlex="30%">
+    <img src="../../assets/image/Sell-Your-Product.png" id="image" />
+  </div>
+
+  <div class="container-1" fxFlex="70%">
+    <div id="heading">
+      <h1>Post Your Product</h1>
+    </div>
+    <mat-card>
+      <div [formGroup]="productForm">
+        <mat-horizontal-stepper linear #stepper [labelPosition]="'bottom'">
+          <div class="step-1">
+            <mat-step>
+              <ng-template matStepLabel>Product Details</ng-template>
+
+              <div fxLayoutGap="2%">
+                <mat-form-field fxFlex="50%" appearance="outline">
+                  <mat-label>Product Name</mat-label>
+                  <input
+                    matInput
+                    placeholder=""
+                    formControlName="productName"
+                    name="productfile"
+                    required
+                  />
+                  <mat-error>Product name is required</mat-error>
+                </mat-form-field>
+
+                <mat-form-field fxFlex="50%" appearance="outline">
+                  <mat-label>Product Category</mat-label>
+                  <mat-select formControlName="productCategory" required>
+                    <mat-option>--</mat-option>
+                    <mat-option
+                      *ngFor="let category of categories"
+                      [value]="category.name"
+                    >
+                      {{ category.name }}
+                    </mat-option>
+                  </mat-select>
+                  <mat-error>Product category is required</mat-error>
+                </mat-form-field>
+              </div>
+
+              <div *ngIf="productCategory.value == 'Others'">
+                <mat-form-field fxFlex="100%" appearance="outline">
+                  <mat-label>Category Name</mat-label>
+                  <input
+                    matInput
+                    placeholder=""
+                    formControlName="categoryDescription"
+                    name="productfile"
+                    required
+                  />
+                  <mat-error>Category name is required</mat-error>
+                </mat-form-field>
+              </div>
+
+              <div>
+                <mat-form-field fxFlex="100%" appearance="outline">
+                  <mat-label>Product Description</mat-label>
+                  <textarea
+                    matInput
+                    formControlName="productDescription"
+                    name="productfile"
+                    maxlength="1000"
+                    required
+                  ></textarea>
+                  <mat-error>Product Description is required</mat-error>
+                  <mat-hint>Characters should not be more than 1000</mat-hint>
+                </mat-form-field>
+              </div>
+
+              <div fxLayoutGap="2%">
+                <mat-form-field fxFlex="50%" appearance="outline">
+                  <mat-label>Year Of Purchase</mat-label>
+                  <input
+                    type="date"
+                    matInput
+                    placeholder=""
+                    formControlName="yearOfPurchase"
+                    max="{{ maxDate }}"
+                    required
+                  />
+                  <mat-error>Year Of Purchase is required</mat-error>
+                </mat-form-field>
+
+                <mat-form-field fxFlex="50%" appearance="outline">
+                  <mat-label>Quantity</mat-label>
+                  <input
+                    type="number"
+                    matInput
+                    placeholder=""
+                    formControlName="quantity"
+                    name="productfile"
+                    required
+                  />
+                  <mat-error>Quantity is required</mat-error>
+                </mat-form-field>
+              </div>
+
+              <div fxFlex="100%">
+                <label class="mat-h2"
+                  >Upload your product image: &nbsp; &nbsp;
+                </label>
+                <input
+                  type="file"
+                  (change)="handleFileInput($event.target.files)"
+                  formControlName="productImage"
+                  required
+                  fxFlex="30%"
+                />
+                <!-- <div class="custom-dropzone" ngx-dropzone [accept]="'image/*'" (change)="onSelect($event)">
+                    <ngx-dropzone-label>
+                      <div>
+                        <h2>My custom dropzone</h2>
+                      </div>
+                    </ngx-dropzone-label>
+                    <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f" [removable]="true" (removed)="onRemove(f)">
+                      <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                    </ngx-dropzone-image-preview>
+                  </div> -->
+              </div>
+              <div class="nextButton">
+                <button class="button" mat-raised-button matStepperNext>
+                  Next
+                </button>
+              </div>
+            </mat-step>
+          </div>
+
+          <div class="step-2">
+            <mat-step>
+              <ng-template matStepLabel>Address</ng-template>
+              <div fxLayoutGap="2%">
+                <mat-form-field fxFlex="31%" appearance="outline">
+                  <mat-label>House Number </mat-label>
+                  <input
+                    matInput
+                    placeholder=""
+                    formControlName="houseNumber"
+                    name="productfile"
+                    required
+                  />
+                  <mat-error>House number is required</mat-error>
+                </mat-form-field>
+
+                <mat-form-field fxFlex="67%" appearance="outline">
+                  <mat-label>Street Name</mat-label>
+                  <input
+                    matInput
+                    placeholder=""
+                    formControlName="streetName"
+                    name="productfile"
+                    required
+                  />
+                  <mat-error>Street name is required</mat-error>
+                </mat-form-field>
+              </div>
+              <div fxLayoutGap="2%">
+                <mat-form-field appearance="outline" fxFlex="32%">
+                  <mat-label>City</mat-label>
+                  <input
+                    matInput
+                    placeholder=""
+                    formControlName="city"
+                    name="productfile"
+                    required
+                  />
+                  <mat-error>City is required</mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" fxFlex="32%">
+                  <mat-label>State</mat-label>
+                  <input
+                    matInput
+                    placeholder=""
+                    formControlName="state"
+                    name="productfile"
+                    required
+                  />
+                  <mat-error>State is required</mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" fxFlex="32%">
+                  <mat-label>Pincode</mat-label>
+                  <input
+                    matInput
+                    placeholder=""
+                    formControlName="pincode"
+                    name="productfile"
+                    required
+                  />
+                  <mat-error>Pincode is required</mat-error>
+                </mat-form-field>
+              </div>
+              <div fxLayoutGap="77%">
+                <button class="button" mat-raised-button matStepperPrevious>
+                  Back
+                </button>
+                <button class="button" mat-raised-button matStepperNext>
+                  Next
+                </button>
+              </div>
+            </mat-step>
+          </div>
+          <div class="step-3">
+            <mat-step>
+              <ng-template matStepLabel>Additional Details</ng-template>
+              <div>
+                <label id="example-radio-group-label" class="mat-h2"
+                  >Mode Of Payment :</label
+                >
+                <mat-radio-group
+                  aria-labelledby="example-radio-group-label"
+                  class="example-radio-group"
+                  formControlName="modeOfPayment"
+                >
+                  <mat-radio-button
+                    [value]="0"
+                    (change)="radioButtonChanged($event)"
+                    matTooltip="You can choose this option to set how many barter coins are required to purchase your item"
+                  >
+                    <img
+                      src="assets\image\c.png"
+                      alt=""
+                      height="30px"
+                      width="30px"
+                    />Barter Coins
+                  </mat-radio-button>
+                  <mat-radio-button
+                    [value]="1"
+                    (change)="radioButtonChanged($event)"
+                    matTooltip="You can choose this option to set with which item you want to exchange your product"
+                  >
+                    <img
+                      src="assets\image\bt1.png"
+                      alt=""
+                      height="35px"
+                      width="55px"
+                    />Bartering
+                  </mat-radio-button>
+                  <mat-radio-button
+                    [value]="2"
+                    (change)="radioButtonChanged($event)"
+                    matTooltip="You can choose this option to set both coin and item for your produuct"
+                  >
+                    Both</mat-radio-button
+                  >
+                </mat-radio-group>
+
+                <!-- <div *ngIf="isHidden"  fxFlex="60%">
+                      <mat-form-field appearance="outline" fxFlex="100%">
+                        <mat-label>Amount of Barter-coin</mat-label>
+                        <input type="number" matInput placeholder="" formControlName="noOfBarterCoin" name="file"
+                          required>
+                      </mat-form-field>
+                    </div> -->
+                <!-- </div>
+                  <div> -->
+
+                <!-- <div  *ngIf="isHidden2"  fxFlex="60%">
+                      <div formArrayName="exchangeItems" *ngFor="let item of exchangeItems.controls; let i=index">
+                        <mat-form-field appearance="outline" fxFlex="100%">
+                          <mat-label>Items for Exchange</mat-label>
+                          <input matInput placeholder="" formControlName={{i}}>
+                        </mat-form-field>
+                        <button mat-icon-button (click)="removeItems(i)" *ngIf="exchangeItems.length>1">
+                          <mat-icon>remove_circle</mat-icon>
+                        </button>
+                        <button mat-icon-button (click)="addItems()">
+                          <mat-icon>add_circle</mat-icon>
+                        </button>
+                      </div>
+                      </div> -->
+                <!-- </div> -->
+
+                <div *ngIf="isHidden">
+                  <mat-form-field appearance="outline" fxFlex="100%">
+                    <mat-label>Amount of Barter-coin</mat-label>
+                    <input
+                      type="number"
+                      matInput
+                      placeholder=""
+                      formControlName="noOfBarterCoin"
+                      name="file"
+                    />
+                    <mat-error>Amount of Barter-coin is required</mat-error>
+                  </mat-form-field>
+                </div>
+                <div *ngIf="isHidden2">
+                  <!-- <mat-form-field class="example-chip-list" appearance="outline">
+                      <mat-label>Items for Exchange</mat-label>
+                      <mat-chip-list #chipList>
+                        <mat-chip *ngFor="let item of exchangeItems" (removed)="remove(item)">
+                          {{item}}
+                          <mat-icon matChipRemove>cancel</mat-icon>
+                        </mat-chip>
+                        <input placeholder="Item name..." #exchangeItemInput [formControl]="exchangeItemCtrl"
+                          [matAutocomplete]="auto" [matChipInputFor]="chipList"
+                          [matChipInputSeparatorKeyCodes]="separatorKeysCodes" (matChipInputTokenEnd)="add($event)"
+                          formControlName="exchangeItems">
+                      </mat-chip-list>
+                      <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)"></mat-autocomplete>
+                    </mat-form-field> -->
+                  <mat-form-field appearance="outline" fxFlex="100%">
+                    <mat-label>Items for Exchange</mat-label>
+                    <input
+                      matInput
+                      placeholder=""
+                      formControlName="exchangeItems"
+                    />
+                    <mat-error>Items for Exchange</mat-error>
+                  </mat-form-field>
+                  <button mat-icon-button (click)="addItems()">
+                    <mat-icon>add_circle</mat-icon>
+                  </button>
+                </div>
+                <div>
+                  <mat-chip-list>
+                    <mat-chip
+                      *ngFor="let item of items; index as i"
+                      (removed)="remove(i)"
+                    >
+                      {{ item }}
+                      <mat-icon matChipRemove>cancel</mat-icon>
+                    </mat-chip>
+                  </mat-chip-list>
+                </div>
+              </div>
+
+              <div fxLayoutGap="72%">
+                <button class="button" mat-raised-button matStepperPrevious>
+                  Back
+                </button>
+                <button
+                  class="button"
+                  mat-raised-button
+                  type="submit"
+                  [disabled]="productForm.invalid"
+                  (click)="
+                    postNewProduct('Product Posted Successfully', 'Dissmiss')
+                  "
+                >
+                  Post Product
+                </button>
+              </div>
+            </mat-step>
+          </div>
+        </mat-horizontal-stepper>
+      </div>
+    </mat-card>
+  </div>
+</div>

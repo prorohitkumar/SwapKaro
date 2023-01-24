@@ -1,0 +1,77 @@
+
+<div class="mat-h1">
+  <span style="width: 30%;">
+      All Products
+  </span> 
+  <span >
+    <form class="form-inline waves-light" mdbWavesEffect>
+      <div class="md-form mat-1">
+        <input class="form-control mr-sm-2" style="width: 300px; margin-left: 10px;" type="text" name="searchword" placeholder="Search" [(ngModel)]="searchword">
+        <button matSuffix mat-button (click)="searching()">
+          <mat-icon>search</mat-icon>
+        </button>
+      </div>
+    </form>
+    <!-- <form class="form" >
+      <mat-form-field appearance="outline" style="height: 10px;">
+        
+        <input  matInput placeholder="Search" name="searchword" [(ngModel)]="searchword">
+        <button matSuffix mat-button (click)="searching()">
+          <mat-icon>search</mat-icon>
+        </button>
+      </mat-form-field>
+    </form> -->
+
+  </span>
+  <span >
+        <mat-paginator [length]="product.length" [pageSize]="8"  aria-label="Select page" (page)="OnChange($event)">   
+        </mat-paginator>    
+  </span>
+</div>
+<div id="content">
+    <div id="flex-container" fxLayout="row wrap" fxLayoutGap="0.4%" >
+        
+        <mat-card style="padding: 1.2rem;"  fxFlex="20%" fxFlex.xs="90%" fxFlex.sm="45%" *ngFor="let product of pagePart" (click)="onCardClick(product)">
+
+            <h5 style="text-align: end;margin: 0%;"><small matTooltip="ProductId" style="font-size: 1rem;">PROD{{product.productId}}</small></h5>
+            <img mat-card-image [src]=product.productImage alt="" style="height: 8rem;margin:auto;width:100%;padding:0.5rem;">
+           
+            <mat-card-head>
+                <mat-card-title>{{product.productName}}</mat-card-title>            
+                <mat-card-subtitle>Owner: {{product.productOwner}}</mat-card-subtitle>     
+            </mat-card-head>
+
+            <mat-card-content style="margin-top: 0.5rem;">
+                
+                <mat-h2 mat-raised-button matTooltip="Mode of Payment" [matTooltipPosition]="position.value"  style="margin-bottom:1rem;font-size:1.2rem"><i class="far fa-credit-card"></i> {{ product.modeOfPayment | lowercase}}</mat-h2 >   <br>                             
+    
+                <mat-h2 class="fa fa-map-marker-alt" matTooltip="Location of Product" [matTooltipPosition]="position.value" style="font-size:1.2rem"> {{product.address.city}}, {{product.address.state}} </mat-h2>
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+    <!-- <div id="content" *ngIf="">
+      <div id="flex-container" fxLayout="row wrap" fxLayoutGap="0.4%" >
+          
+          <mat-card  fxFlex="20%" fxFlex.xs="90%" fxFlex.sm="45%" *ngFor="let product of pagePart1" (click)="onCardClick(product)">
+  
+              <h5 style="text-align: end;margin: 0%;"><small matTooltip="ProductId">{{product.productId}}</small></h5>
+              <img mat-card-image [src]=product.productImage alt="" style="height: 8rem;margin:auto;width:100%;padding:0.5rem;">
+             
+              <mat-card-head>
+                  <mat-card-title>{{product.productName}}</mat-card-title>            
+                  <mat-card-subtitle>Owner: {{product.productOwner}}</mat-card-subtitle>     
+              </mat-card-head>
+  
+              <mat-card-content>
+                  
+                  <mat-h2 mat-raised-button matTooltip="Mode of Payment" [matTooltipPosition]="position.value"  style="margin-bottom:1rem;font-size:1.2rem"><i class="fa fa-money" style="font-size:24px"></i> {{ product.modeOfPayment | lowercase}}</mat-h2 >   <br>                             
+      
+                  <mat-h2 class="fa fa-map-marker-alt" matTooltip="Location of Product" [matTooltipPosition]="position.value" style="font-size:1.2rem"> {{product.address.city}}, {{product.address.state}} </mat-h2>
+              </mat-card-content>
+          </mat-card>
+      </div> -->
+
+   
+</div>
+

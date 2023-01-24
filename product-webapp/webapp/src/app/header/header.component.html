@@ -1,0 +1,63 @@
+<!-- ---------------------------------------------------------------------------------------------------------------- -->
+<mat-drawer-container>
+  <mat-drawer mode="side" [opened]="sideNavOpen">
+    <!-- side nav bar -->
+    <app-nav-bar></app-nav-bar>
+  </mat-drawer>
+  <mat-drawer-content>
+    <!-- header of the app -->
+    <!-- ------------------------------------------------------------------------------------ -->
+    <mat-toolbar>
+      <mat-toolbar-row class="justify-content-between">
+        <div class="logo">
+          <button mat-icon-button (click)="sideNavToggler()" class="menu-toggle">
+            <mat-icon>menu</mat-icon>
+          </button>
+          <h2>SwapKaro</h2>
+        </div>
+        <div>
+          <!-- <form class="form">
+              <mat-form-field>
+                <span matPrefix> </span>
+                <input type="tel" matInput placeholder="Search" name="search" [(ngModel)]="search">
+                <button matSuffix mat-button (click)="searching()">
+                  <mat-icon>search</mat-icon>
+                </button>
+              </mat-form-field>
+            </form> -->
+        </div>
+        <ul>
+          <li>
+
+
+
+            <button mat-button [matMenuTriggerFor]="menu" class="user mt-2 d-flex align-items-center">
+
+              <i class="fas fa-coins"></i> {{userCoins}}
+              <i class="fas fa-user-circle fa-2x cyan-text" style="color: white;margin-left: 1rem;"></i>
+              {{ loggedInUser }}
+
+              <mat-icon class="user-image-icon ml-1">keyboard_arrow_down</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item (click)="withdrawl()">
+                <mat-icon>account_balance_wallet</mat-icon>
+                Withdraw
+              </button>
+              <button mat-menu-item (click)="logout()">
+                <mat-icon>exit_to_app</mat-icon>
+                Logout
+              </button>
+            </mat-menu>
+
+          </li>
+        </ul>
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <!-- ------------------------------------------------------------------------------------ -->
+
+    <!-- routes for different pages -->
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>
+<!-- ---------------------------------------------------------------------------------------------------------------- -->

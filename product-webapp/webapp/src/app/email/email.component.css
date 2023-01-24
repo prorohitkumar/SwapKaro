@@ -1,0 +1,44 @@
+h1 {
+  font-family: "Lobster", cursive;
+  font-weight: 700;
+  margin-top: 15px;
+  margin-left: 5px;
+}
+
+.mat-form-field {
+  width: 700px !important;
+  padding: 20px;
+  margin: 5px;
+  margin-bottom: 0;
+}
+
+.mat-chip-list {
+  background-color: red !important;
+}
+
+.mat-chip {
+  width: fit-content !important;
+}
+
+.matInput {
+  width: 100% !important;
+  height: 40px;
+  border-bottom: 1px solid black;
+  margin: 15px;
+}
+
+.row {
+  margin-top: 20px;
+  display: flex;
+  justify-content: right;
+}
+
+.btn {
+  width: 200px;
+  font-weight: bold;
+}
+
+.btn-color {
+  background-color: #022e57;
+  color: white;
+}

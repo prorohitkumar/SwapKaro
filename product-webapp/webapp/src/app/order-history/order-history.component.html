@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<body>
+  <div class="title" fxLayout="row">
+    <div style=" font-family: 'Lucida Sans';
+  font-style: bold;
+  font-size: xx-large;
+  color: black;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 1rem;
+  margin-left: 2rem; margin-bottom: 1rem;" fxFlex="30%">Transaction History</div>
+    <div>
+      <pagination-controls class="text-left my-pagination" fxFlex="40%" flexLayoutGap="20%"
+        style="margin-left: 45rem; margin-top: 1.5rem; font-size: 16px;" (pageChange)="page = $event">
+      </pagination-controls>
+    </div>
+  </div>
+  <div href="#" *ngFor="let order of order | paginate: {itemsPerPage: 3, currentPage: page, totalItems: totalLength}"
+    (click)="getAllOrderHistories">
+    <div id="content">
+      <mat-card class="container" fxLayout=" row">
+        <div fxFlex="50%">Order Id:ORD {{order.orderId}}</div>
+        <div fxFlex="50%">Payment Type: {{order.paymentMode}}</div>
+      </mat-card>
+      <mat-card class="orderDetails" fxLayout="row">
+        <div class="image" fxFlex="25%">
+          <img [src]=order.image height="90px" width="150px" alt="profile picture" />
+        </div>
+        <div class="details" fxFlex="25%" style="margin-left: 0;">
+          <div>Seller Name &nbsp;<span
+              style="font-family: Georgia, 'Times New Roman', Times, serif; font-weight: bold;">{{order.sellerName}}</span>
+          </div>
+          <div>Buyer Name &nbsp;<span
+              style="font-family: Georgia, 'Times New Roman', Times, serif; font-weight: bold;">{{order.buyerName}}</span>
+          </div>
+        </div>
+        <div class="details" fxFlex="25%" style="margin: 0;">
+          <div>Product Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+              style="font-family: Georgia, 'Times New Roman', Times, serif; font-weight: bold;">{{order.productName}}</span>
+          </div>
+          <div>Date of Transaction &nbsp;<span
+              style="font-family: Georgia, 'Times New Roman', Times, serif; font-weight: bold;">{{order.dateOfTransaction}}</span>
+          </div>
+        </div>
+        <div class="button" fxFlex="25%">
+          <button mat-raised-button color="primary" matTooltip="Click here to generate invoice"
+            (click)="openDialog(order.orderId)">Invoice</button>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+* {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+#heading {
+  background-color: darkcyan;
+  height: 60px;
+}
+
+h1 {
+  font-weight: bold;
+  font-family: "Lucida Sans";
+  font-size: xx-large;
+  padding: 10px;
+  color: rgb(247, 255, 247);
+  text-align: center;
+}
+.button {
+  height: 40px;
+  width: fit-content;
+  font-size: 15px;
+  font-weight: 20px;
+  border-radius: 5px;
+  background-color: #022e57;
+  color: white;
+}
+
+.nextButton {
+  display: flex;
+  justify-content: flex-end;
+}
+p {
+  font-weight: bold;
+}
+#image {
+  /* margin-left: 5px;
+    margin-top: 50px;
+   
+    background-image: url(/assets/image/barter-image2.jpg);
+    background-repeat: no-repeat;
+    background-size:100%; */
+  height: 550px;
+  width: 400px;
+}
+
+mat-chip {
+  height: 20px;
+  width: fit-content;
+}
+matTooltip {
+  font-size: x-large;
+}
+.mat-radio-button ~ .mat-radio-button {
+  margin-left: 16px;
+}
+
+#image {
+  width: 100%;
+  padding: 3px;
+}

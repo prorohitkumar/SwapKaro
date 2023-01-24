@@ -1,0 +1,40 @@
+.mat-dialog-title{
+    background-color: #022E57;
+    font-weight: medium;
+    color: white;
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 30px;
+    letter-spacing: 2px;
+    word-spacing: 2px;
+ }
+   .container {
+    margin-top: 1rem;
+    width: 100%;
+    height:65%
+   }
+   .mat-raised-button{
+    margin-left: 12rem;
+    margin-top: 1.5rem;
+    height: 40px;
+    width: 90px;
+    }
+    
+    .prod{
+      
+      font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      margin-left: 1rem;
+      font-size: 20px;
+      font-weight: bold;
+      margin-top: 1rem;
+   
+   }
+   .pro{
+      
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-left: 1rem;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 1rem;
+ 
+ }

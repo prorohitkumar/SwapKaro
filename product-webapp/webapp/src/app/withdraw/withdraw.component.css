@@ -1,0 +1,26 @@
+
+button{
+    background-color: #022E57;
+    color: white;
+    border-radius: 0.3rem;
+    margin-top: 1rem;
+    font-size: 1.4rem;
+    padding: 0.4rem;
+}
+
+
+.close-icon{
+    justify-content: flex-end;
+    text-align: right;
+}
+.close-icon:hover{
+    cursor: pointer;
+}
+.heading{
+    font-size: 28px;
+   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+   text-align: center;
+   font-weight: bold;
+   letter-spacing: 2px;
+   word-spacing: 2px;
+ }

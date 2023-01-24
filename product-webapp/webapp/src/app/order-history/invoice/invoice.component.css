@@ -1,0 +1,27 @@
+.mat-dialog-title{    
+    font-family: 'Lucida Sans';
+    font-style: bold;
+    font-size: x-large;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    margin-left: 2rem;
+    margin-top: 0.5em;
+    background-color:#022E57;
+    }
+.container{
+font-family: 'Lucida Sans';
+font-style: bolder;
+font-size: 18px;
+letter-spacing: 2px;
+word-spacing: 5px;
+line-height: 2.5rem;
+padding-left: 5rem;
+padding-top: 1rem;
+}
+.mat-raised-button{
+margin-left: 20rem;
+margin-top: 2rem;
+height: 50px;
+width: 120px;
+}

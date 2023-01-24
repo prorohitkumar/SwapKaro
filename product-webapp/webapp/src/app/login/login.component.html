@@ -1,0 +1,61 @@
+<div class="container">
+  <a class="navbar-brand" routerLink="/" style="position: absolute;z-index:7;left: 1rem;top: 0.4rem;">
+    <img
+      src="../../assets/image/brand-logo.png"
+      width="200"
+      height="40"
+      alt=""
+    />
+  </a>
+  <div class="forms-container" >
+    <div class="signin-signup">
+      <form class="sign-in-form" [formGroup]="formGroup">
+        <h2 class="title">Log in</h2>
+        <div class="input-field">
+          <i class="fa fa-user"></i>
+          <input type="text" id="mail" placeholder="Username" formControlName="emailFormControl"/>
+        </div>
+        <small style="color: red;" *ngIf="formGroup.get('emailFormControl').invalid && formGroup.get('emailFormControl').touched">
+          Enter valid email
+        </small>
+        <div class="input-field">
+          <i class="fa fa-lock"></i>
+          <input type="password" placeholder="Password" formControlName="passwordFormControl"/>
+        </div>
+        <small style="color: red;" *ngIf="formGroup.get('passwordFormControl').invalid && formGroup.get('passwordFormControl').touched">
+          Enter password with minimum 8 characters
+        </small>
+        <small style="color: red;" *ngIf=loginError>
+          Invalid credentials
+        </small>
+        <div *ngIf="formGroup.invalid">
+          <button (click)="onLogin(formGroup)" [disabled]="formGroup.invalid" style="background-color: lightgray;margin-top: 1rem;color: black;font-size:2rem;padding: 0.4rem 1.4rem;" mat-raised-button>Login</button>
+        </div>
+        <div *ngIf="formGroup.valid">
+          <button (click)="onLogin(formGroup)" [disabled]="formGroup.invalid" style="background-color: #022E57;margin-top: 1rem;color: aliceblue;font-size:2rem;padding: 0.4rem 1.4rem;" mat-raised-button>Login</button>
+        </div>
+        <p class="social-text">Or</p>
+        <div class="social-media">
+          <!-- <a mat-stroked-button href="https://swapkaro.stackroute.io/authentication-service/api/v5/signin" style="padding: 0.4rem 1.4rem;"><img src="https://img.icons8.com/color/48/000000/google-logo.png"/> Sign In with Google</a> -->
+          <a mat-stroked-button  href="http://localhost:8095/api/v5/signin" style="padding: 0.4rem 1.4rem;"><img src="https://img.icons8.com/color/48/000000/google-logo.png"/> Sign In with Google</a>
+        </div>
+      </form>
+     
+    </div>
+  </div>
+
+  <div class="panels-container">
+    <div class="panel left-panel">
+      <div class="content">
+        <h3>New here ?</h3>
+        <p>
+          Want To Exchange Or Trade Then
+        </p>
+        <a id="sign-up" (click)="onRegister()">
+          Register
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</div>

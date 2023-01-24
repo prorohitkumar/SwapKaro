@@ -1,0 +1,63 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+mat-drawer-container {
+  height: 100%;
+}
+
+mat-drawer {
+  width: 260px;
+  background-color: #0f172a;
+}
+
+mat-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #0f172a;
+}
+
+ul li {
+  list-style: none;
+}
+
+.menu-toggle {
+  border: 0;
+  outline: none;
+  background: transparent;
+  color: white;
+}
+
+.user {
+  font-size: 16px;
+  color:white;
+}
+
+.user-image-icon {
+  height: 18px;
+  font-size: 16px;
+  color: white;
+}
+
+.btn {
+  width: 100px;
+  font-size: 15px;
+  margin: 0 5px;
+  font-family: "Lobster", cursive;
+  color: #0f172a;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 25px;
+  font-family: "Lobster", cursive;
+  font-weight: 900;
+  color: white;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}

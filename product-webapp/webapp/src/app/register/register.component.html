@@ -1,0 +1,80 @@
+<div class="container">
+  <a class="navbar-brand" routerLink="/" style="position: absolute;z-index:7;left: 1rem;top: 0.4rem;">
+    <img
+      src="../../assets/image/brand-logo.png"
+      width="200"
+      height="40"
+      alt=""
+    />
+  </a>
+  <div class="forms-container">
+    <!-- <div id="logo-container">
+      <img src="https://img.icons8.com/color/48/000000/google-logo.png"/>
+      <span>Swapkaro</span>  
+    </div> -->
+    <div class="signin-signup">
+     
+        <form class="sign-in-form" [formGroup]="myGroup" >
+            <h2 class="title">Register Here</h2>
+            <div class="input-field">
+              <i class="fa fa-envelope"></i>
+              <input type="email" id="mail" placeholder="Email"  formControlName="emailFormControl"/>
+            </div>
+            <small style="color: red;" *ngIf="myGroup.get('emailFormControl').invalid && myGroup.get('emailFormControl').touched">
+              Enter valid Email
+          </small>
+           <small style="color: red;" *ngIf=emailError>
+              Email already undertaken
+           </small> 
+            <div class="input-field">
+              <i class="fa fa-lock"></i>
+              <input type="password" placeholder="Password" formControlName="passwordFormControl"/>
+            </div>
+            <small style="color: red;" *ngIf="myGroup.get('passwordFormControl').invalid && myGroup.get('passwordFormControl').touched">
+               Enter 8 characters 
+          </small>
+            <div class="input-field">
+              <i class="fa fa-map-marker"></i>
+              <input type="text" placeholder="City" formControlName="cityFormControl"/>
+            </div>
+            <small style="color: red;" *ngIf="myGroup.get('cityFormControl').invalid && myGroup.get('cityFormControl').touched">
+              Enter city name
+          </small>
+            <div class="input-field">
+              <i class="fa fa-map-marker"></i>
+              <input type="text" placeholder="State" formControlName="stateFormControl"/>
+            </div>
+            <small style="color: red;" *ngIf="myGroup.get('stateFormControl').invalid && myGroup.get('stateFormControl').touched">
+              Enter State name
+          </small>
+            <div *ngIf="myGroup.invalid" >
+              <button (click)="onRegister(myGroup)"  [disabled]="myGroup.invalid"  style="background-color: lightgrey;color: black;font-size:2rem;padding: 0.4rem 1.4rem;margin-top: 1rem;" mat-raised-button>Register</button>
+            </div>
+            <div *ngIf="myGroup.valid">
+              <button (click)="onRegister(myGroup)"  [disabled]="myGroup.invalid"  style="background-color: #022E57;color: aliceblue;font-size:2rem;padding: 0.4rem 1.4rem;margin-top: 1rem;" mat-raised-button>Register</button>
+            </div>
+            <p class="social-text">Or</p>
+            <div class="social-media">
+              <!-- <a mat-stroked-button  href="https://swapkaro.stackroute.io/authentication-service/api/v5/signin" style="padding: 0.4rem 1.4rem;"><img src="https://img.icons8.com/color/48/000000/google-logo.png"/> Sign In with Google</a> -->
+              <a mat-stroked-button  href="http://localhost:8095/api/v5/signin" style="padding: 0.4rem 1.4rem;"><img src="https://img.icons8.com/color/48/000000/google-logo.png"/> Sign In with Google</a>
+            </div>
+          </form>
+    </div>
+  </div>
+
+  <div class="panels-container">
+    <div class="panel left-panel">
+      <div class="content">
+        <h3>One of us ?</h3>
+        <p>
+          Want to Trade or Exchange
+        </p>
+        
+        <a id="sign-in" (click)="onLogIn()">
+         Log In
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</div>

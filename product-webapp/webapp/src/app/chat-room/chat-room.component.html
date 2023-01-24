@@ -1,0 +1,110 @@
+<!-- --------------------------------------------------------------------------------------------------------------- -->
+<!-- -------------------------------------------------- Chat Room -------------------------------------------------- -->
+<!-- --------------------------------------------------------------------------------------------------------------- -->
+<!-- <mat-dialog-container> </mat-dialog-container> -->
+<div class="chat-header">
+  <p class="chat-app-name">Chatbox</p>
+  <i style="font-size: 24px" class="fa close-icon" (click)="closeDialog()"
+    >&#xf00d;</i
+  >
+</div>
+
+
+<div class="chat-body" >
+  <h1 *ngIf="!chatsAvailable" style="display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  color: aliceblue;"> NO BUYER IS THERE</h1>
+  <mat-drawer-container class="side-container"  *ngIf="chatsAvailable">
+    <mat-drawer mode="side" opened class="buyers-list">
+      <!-- search bar -->
+      <!-- <div class="search-bar">
+        <input
+          id="search-chatuser"
+          value=""
+          type="text"
+          placeholder="search contact..."
+          class="message-input"
+        />
+      </div> -->
+      <!-- ------------------------------------------- user list ------------------------------------------- -->
+      <mat-dialog-content>
+        <div
+          class="user-detail"
+          *ngFor="let buyer of chatHistory.buyersChat"
+          (click)="OnBuyerChat(buyer, chatHistory)"
+        >
+          <div class="img-container">
+            <!-- <img [src]="imagePath" alt="owner-avatar" class="user-img" /> -->
+            <ngx-avatar name="{{ productOwner }}"></ngx-avatar>
+          </div>
+          <div class="details">
+            <h3 class="user-name">{{ productOwner }}</h3>
+            <div *ngIf="buyer.messageBody!=null">
+            <p class="last-message">
+              {{ buyer.messageBody[buyer.messageBody.length - 1].message.substring(0,10) }}
+            </p>
+            </div>
+          </div>
+        </div>
+      </mat-dialog-content>
+      <!-- ------------------------------------------- user list ------------------------------------------- -->
+    </mat-drawer>
+    <mat-drawer-content>
+      <div *ngIf="productBuyer.messageBody==null">
+
+      </div>
+      <div *ngIf="productBuyer.messageBody!=null">
+      <mat-dialog-content class="messages">
+        <div id="message-container" *ngFor="let details of productBuyer.messageBody">
+          <p
+            *ngIf="details.messageSendBy == productBuyer.buyerEmail"
+            style="
+              display: flex;
+              justify-content: flex-start;
+              padding-left: 1rem;
+            "
+          >
+            <span style="background-color: aliceblue" class="user-message-box">
+              <!-- {{details.messageSendOn}}
+              {{details.messageSendBy}} -->
+              <ngx-avatar name="{{ details.messageSendBy }}"></ngx-avatar>
+              <span style="margin: 0rem 0.4rem"> {{ details.message }}</span>
+            </span>
+          </p>
+          <p
+            *ngIf="details.messageSendBy != productBuyer.buyerEmail"
+            style="
+              display: flex;
+              justify-content: flex-end;
+              padding-right: 1rem;
+            "
+          >
+            <span
+              style="background-color: papayawhip; color: black"
+              class="user-message-box"
+            >
+              <!-- {{details.messageSendOn}}
+              {{details.messageSendBy}} -->
+              <ngx-avatar name="{{ details.messageSendBy }}"></ngx-avatar>
+              <span style="margin: 0rem 0.4rem"> {{ details.message }}</span>
+            </span>
+          </p>
+        </div>
+      </mat-dialog-content>
+      </div>
+      <mat-dialog-actions align="end">
+        <input [(ngModel)]="message"
+          type="text"
+          class="message-input"
+          placeholder="Type a message..."
+        />
+        <button class="btn" (click)="onMessageSend()">
+          <i class="zmdi zmdi-mail-send"></i>
+          
+        </button>
+      </mat-dialog-actions>
+    </mat-drawer-content>
+  </mat-drawer-container>
+</div>

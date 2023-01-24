@@ -1,0 +1,40 @@
+<div>
+        <h1 mat-dialog-title> Invoice <i style="font-size: 24px" class="fa close-icon"
+                        style="float: right; cursor: pointer; margin-top: 0.3rem; margin-right: 0.5rem;"
+                        (click)="closeDialog()">&#xf00d;</i></h1>
+</div>
+<div href="#">
+        <mat-dialog-content class="container">
+                <div>Order Id: &nbsp; <span
+                                style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: bold; color:black">{{invoices.orderId}}</span>
+                </div>
+                <div>Product Id: &nbsp; <span
+                                style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: bold;">{{invoices.productId}}</span>
+                </div>
+                <div>Product:&nbsp; <span
+                                style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;font-weight: bold;">{{invoices.productName}}</span>
+                </div>
+                <div>Seller: &nbsp; <span
+                                style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-weight: bold;">{{invoices.sellerName}}</span>
+                </div>
+                <div>Buyer:&nbsp; <span
+                                style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;font-weight: bold;">{{invoices.buyerName}}</span>
+                </div>
+                <div>Date of Transaction:&nbsp; <span
+                                style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;font-weight: bold;">
+                                {{invoices.dateOfTransaction}}</span></div>
+                <div>Payment Mode:&nbsp; <span
+                                style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: bold;">
+                                {{invoices.paymentMode}}</span></div>
+                <div>Amount: &nbsp; <span
+                                style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ; font-weight: bold;">{{invoices.amount}}
+                        </span></div>
+                <div>Product Category:&nbsp; <span
+                                style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: bold;">
+                                {{invoices.
+                                productCategory}}</span></div>
+        </mat-dialog-content>
+</div>
+<div class="button">
+        <button mat-raised-button color="primary" matTooltip="Print This Invoice">Print</button>
+</div>

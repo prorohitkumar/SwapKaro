@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" http-equiv="Content-Type" content="text/html">
+    <title>SwapKaro</title>
+</head>
+<body>
+<div style="width: 100%; text-align: center; backround-color: blue ">
+    <h5 th:text="'The '+ ${productName} + ' Details Are Given In QR Format Below'"></h5>
+</div>
+</div>
+<div style="width: 100%; text-align: center">
+    <img th:src="@{'data:image/png;base64,'+${qrCode}}",  height="100" width="100" alt="red dot">
+</div>
+
+</body>
+</html>

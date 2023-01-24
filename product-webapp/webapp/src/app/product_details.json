@@ -1,0 +1,54 @@
+{
+  "productId": 101,
+  "productName": "Samsung Washing Machine",
+  "yearOfPurchase": 2018,
+  "dateOfPosting": "06/09/2021",
+  "productCategory": "Electronics",
+  "categoryDescription": "Electronics Electronics Electronics Electronics",
+  "location": "Rajeev Chonk, New Delhi, India",
+  "productDescription": " Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem, animi magni dolore enim excepturi voluptatem et iste fuga vel consequatur maxime itaque! Culpa adipisci itaque, quo dolores debitis minus ab!",
+  "quantity": 9,
+  "productImage": "Image.jpg",
+  "productStatus": "Available",
+  "modeOfPayment": ["BarterTrading"],
+  "noOfBarterCoin": 1500,
+  "exchangeItems": ["Books", "Watch"],
+  "productOwner": "emailId9@email.com",
+  "ratings": 999,
+  "reviews": [
+    {
+      "reviewerEmailId": "emailId9@email.com",
+      "comment": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem, animi magni dolore enim excepturi voluptatem et iste fuga vel consequatur maxime itaque! Culpa adipisci itaque, quo dolores debitis minus ab!",
+      "dateOfReview": "06/08/2021",
+      "reply": [
+        {
+          "replyerEmailId": "emailId9@email.com",
+          "comment": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem, animi magni dolore enim excepturi voluptatem et iste fuga vel consequatur maxime itaque! Culpa adipisci itaque, quo dolores debitis minus ab!",
+          "dateOfReply": "06/08/2021"
+        },
+        {
+          "replyerEmailId": "emailId9@email.com",
+          "comment": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem, animi magni dolore enim excepturi voluptatem et iste fuga vel consequatur maxime itaque! Culpa adipisci itaque, quo dolores debitis minus ab!",
+          "dateOfReply": "06/08/2021"
+        }
+      ]
+    },
+    {
+      "reviewerEmailId": "emailId9@email.com",
+      "comment": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem, animi magni dolore enim excepturi voluptatem et iste fuga vel consequatur maxime itaque! Culpa adipisci itaque, quo dolores debitis minus ab!",
+      "dateOfReview": "06/08/2021",
+      "reply": [
+        {
+          "replyerEmailId": "emailId9@email.com",
+          "comment": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem, animi magni dolore enim excepturi voluptatem et iste fuga vel consequatur maxime itaque! Culpa adipisci itaque, quo dolores debitis minus ab!",
+          "dateOfReply": "06/08/2021"
+        },
+        {
+          "replyerEmailId": "emailId9@email.com",
+          "comment": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem, animi magni dolore enim excepturi voluptatem et iste fuga vel consequatur maxime itaque! Culpa adipisci itaque, quo dolores debitis minus ab!",
+          "dateOfReply": "06/08/2021"
+        }
+      ]
+    }
+  ]
+}

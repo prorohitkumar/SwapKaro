@@ -1,0 +1,36 @@
+<div class="container">
+  <h1>Sharing Product with...</h1>
+  <mat-form-field class="example-chip-list" appearance="outline">
+    <mat-label>Add Receiver's Emails</mat-label>
+    <input
+      matInput
+      placeholder="New email..."
+      [matChipInputFor]="chipList"
+      [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+      [matChipInputAddOnBlur]="addOnBlur"
+      (matChipInputTokenEnd)="add($event)"
+      style="margin-bottom: 15px"
+    />
+    <mat-chip-list #chipList aria-label="Email selection">
+      <mat-chip *ngFor="let email of listOfEmails" (removed)="remove(email)">
+        {{ email }}
+        <!-- <button > -->
+          <mat-icon >cancel</mat-icon>
+        <!-- </button> -->
+      </mat-chip>
+    </mat-chip-list>
+  </mat-form-field>
+  <div class="row container">
+    <button
+      type="button"
+      class="btn btn-dark btn-color"
+      matTooltip="Add the item to the cart"
+      mat-raised-button
+      (click)="onSubmit()"
+      routerLink="/header/productdetails"
+      style="margin-bottom: 13px !important;"
+    >
+      Share
+    </button>
+  </div>
+</div>

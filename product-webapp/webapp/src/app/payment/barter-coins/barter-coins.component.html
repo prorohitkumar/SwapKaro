@@ -1,0 +1,131 @@
+<div>
+  <h1 mat-dialog-title>
+    Payment Mode: Barter Coins &nbsp;
+    <img src="assets\image\coins.png" alt="" height="30px" width="30px" />
+    <i
+      style="font-size: 24px"
+      class="fa close-icon"
+      style="float: right; cursor: pointer"
+      (click)="closeDialog()"
+      >&#xf00d;</i
+    >
+  </h1>
+</div>
+<div>
+  <h2 class="heading">
+    Available Barter Coins: &nbsp; {{ availableBarterCoin }} &nbsp;
+    <img
+      src="assets\image\availableCoins.jpg"
+      alt=""
+      width="30px"
+      height="30px"
+    />
+  </h2>
+</div>
+
+<div *ngIf="availableBarterCoin >= productDetail.noOfBarterCoin">
+  <mat-card class="transfer" fxLayout="row">
+    <div class="details" fxLayout="column">
+      <div class="image" fxFlex="30%">
+        <img src="assets\image\c.png" alt="" height="55px" width="60px" />
+      </div>
+      <br />
+      <div class="cont" fxFlex="30%">{{ productDetail.noOfBarterCoin }}</div>
+    </div>
+    <div
+      style="
+        width: 100%;
+        height: 0;
+        padding-bottom: 20%;
+        position: relative;
+        padding-left: 1%;
+        padding-top: 0%;
+      "
+    >
+      <iframe
+        src="https://giphy.com/embed/vdpRNviw5twgvSRwhA"
+        width="100%"
+        height="100%"
+        style="position: absolute"
+        frameBorder="0"
+        class="giphy-embed"
+        allowFullScreen
+      >
+      </iframe>
+    </div>
+    <div class="prod" fxFlex="30%">
+      <div>Product Id: &nbsp;PROD{{ productDetail.productId }}</div>
+      <br />
+      <br />
+      <div>Product: &nbsp; <br />{{ productDetail.productName }}</div>
+    </div>
+  </mat-card>
+  <div class="button">
+    <button
+      mat-raised-button
+      color="primary"
+      matTooltip="Pay"
+      (click)="
+        onPayment(
+          'You have purchased the product using coins successfully',
+          'Dissmiss'
+        )
+      "
+      style="
+        float: right;
+        margin-top: 1.5rem;
+        height: 45px;
+        width: 200px;
+        font-size: 18px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+          'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        letter-spacing: 1px;
+      "
+    >
+      Pay
+    </button>
+  </div>
+</div>
+
+<div *ngIf="availableBarterCoin < productDetail.noOfBarterCoin">
+  <mat-card class="add" fxLayout="row">
+    <div
+      style="width: 100%; padding-bottom: 20%; position: absolute; float: left"
+    >
+      <iframe
+        src="https://giphy.com/embed/l3mZaGv4Krokd3GM0"
+        width="95%"
+        height="100%"
+        style="position: absolute"
+        allowFullScreen
+      >
+      </iframe>
+    </div>
+    <div class="button">
+      <button
+        mat-raised-button
+        color="primary"
+        matTooltip="Add Coins"
+        (click)="openDialog()"
+        style="
+          margin-left: 1rem;
+          margin-top: 5rem;
+          height: 45px;
+          width: 200px;
+          font-size: 16px;
+          font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+            'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+          letter-spacing: 1px;
+        "
+      >
+        Add Barter Coins
+      </button>
+    </div>
+    <div class="prod1" fxFlex="30%">
+      <div>Product Id: &nbsp; PROD{{ productDetail.productId }}</div>
+      <br />
+      <br />
+      <div>Product: &nbsp; <br />{{ productDetail.productName }}</div>
+    </div>
+  </mat-card>
+</div>

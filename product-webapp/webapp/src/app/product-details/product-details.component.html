@@ -1,0 +1,216 @@
+<head>
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
+<!-- -------------------------------------------------------------------------------------------------------------------- -->
+<div class="container">
+  <div class="row">
+    <!-- product image -->
+    <div class="col-sm-4">
+      <div class="card">
+        <div class="row">
+          <div class="col-sm-12">
+            <img [src]="productDetail.productImage" alt="" class="img-fluid" matTooltip="Product Image"
+              style="height: 20rem; width: 100%" />
+            <div>
+              <div [innerHTML]="qrHtml" alt="PRODUCT QR" class="img-fluid" matTooltip="Product QRImage"
+                style="height: 100%; width: 100%; margin-bottom: 0.5rem"> </div>
+            </div>
+          </div>
+          <div class="col-sm-12 chat-seller" *ngIf="productDetail.productOwner == loginUser">
+            <button type="button" class="btn btn-outline-dark chat-button"
+              matTooltip="Chat with the seller about the product" mat-raised-button (click)="openDialog()">
+              Chat With Buyer
+            </button>
+          </div>
+          <div class="col-sm-12 chat-seller" *ngIf="productDetail.productOwner != loginUser">
+            <button type="button" class="btn btn-outline-dark chat-button"
+              matTooltip="Chat with the seller about the product" mat-raised-button (click)="openDialog()">
+              Chat With Seller
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- product details -->
+    <div class="col-sm-8">
+      <div class="row">
+        <div class="col-sm-12" style="
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+          ">
+          <h1 matTooltip="Product Name" style="display: inline">
+            {{ productDetail.productName }}
+          </h1>
+          <span matTooltip="Product Id">Product Id: PROD{{ productDetail.productId }}
+          </span>
+        </div>
+      </div>
+      <!-- Description -->
+      <div class="card">
+        <div class="card-header">Description</div>
+        <div class="card-body">
+          <p matTooltip="Product Description">
+            {{ productDetail.productDescription }}
+          </p>
+          <p>
+            <i style="font-size: 24px" class="fa" matTooltip="Date of Add Posting">&#xf073;</i>
+            {{ productDetail.dateOfPosting }}
+          </p>
+        </div>
+      </div>
+      <!-- Product owner details -->
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="card">
+            <div class="card-header">Owner Details</div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-sm-6">
+                  <p matTooltip="Product Owner and ratings by other user">
+                    <i style="font-size: 24px" class="fa">&#xf007;</i>
+                    {{ productDetail.productOwner }} (⭐⭐⭐
+                    {{ productDetail.ratings }} ratings)
+                  </p>
+                </div>
+                <div class="col-sm-4">
+                  <p matTooltip="Location of the product">
+                    <i style="font-size: 24px" class="fa">&#xf041;</i>
+                    {{ productDetail.address.houseNumber }}
+                    {{ productDetail.address.streetName }}
+                    {{ productDetail.address.city }}
+                    {{ productDetail.address.state }}
+                    {{ productDetail.address.pincode }}
+                  </p>
+                </div>
+                <div class="col-sm-2">
+                  <p matTooltip="Year of purchase by the owner">
+                    <i style="font-size: 24px" class="fa">&#xf073;</i>
+                    {{ productDetail.yearOfPurchase }}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- product overview -->
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-header">Overview</div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-sm-6">
+                  <p matTooltip="Product Category">
+                    <b>Category: </b>{{ productDetail.productCategory }}
+                  </p>
+                </div>
+                <div class="col-sm-6">
+                  <p matTooltip="Product Quantity">
+                    <b>Quantity: </b> {{ productDetail.quantity }}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-header">Payment Options</div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-sm-6">
+                  <p matTooltip="Available modes of payment for the product">
+                    <i style="font-size: 24px" class="fa">&#xf156;</i>
+                    {{ productDetail.modeOfPayment }}
+                  </p>
+                </div>
+                <div class="col-sm-6">
+                  <p matTooltip="Cost of product in B-Bucks">
+                    <i style="font-size: 24px" class="fa">&#xf0d6;</i>
+                    {{ productDetail.noOfBarterCoin }}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="page-buttons">
+        <button type="button" class="btn btn-dark btn-color" matTooltip="Add the item to the cart" mat-raised-button>
+          Add to Cart
+        </button>
+        <!-- -------------------------------------- -->
+        <button type="button" class="btn btn-outline-dark" matTooltip="Add the item to the cart" mat-raised-button
+          (click)="openShareDialog()">
+          Share
+        </button>
+        <!-- -------------------------------------- -->
+        <div *ngIf="productDetail?.modeOfPayment == 'BARTERING'">
+          <div *ngIf="productDetail.productOwner != loginUser">
+            <button type="button" class="btn btn-dark btn-color" matTooltip="Proceed to buy the product"
+              mat-raised-button (click)="openDialog1()">
+              Buy Now
+            </button>
+          </div>
+        </div>
+        <div *ngIf="productDetail?.modeOfPayment == 'COINS'">
+          <div *ngIf="productDetail.productOwner != loginUser">
+            <button type="button" class="btn btn-dark btn-color" matTooltip="Proceed to buy the product"
+              mat-raised-button (click)="openDialog2()">
+              Buy Now
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <hr /> -->
+  <mat-card class="comment-section">
+    <mat-card-header class="card-header">
+      <mat-card-title> Comments / FAQ's</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form>
+        <mat-form-field appearance="outline" fxFlex="70%">
+          <input matInput placeholder="Write a comment" [(ngModel)]="comment" name="comment" required />
+        </mat-form-field>
+        <!-- <div> -->
+        <button type="submit" (click)="submitReview()" class="btn btn-color round-btn" matTooltip="post your comment"
+          mat-raised-button>
+          <i style="font-size: 15px" class="fa">&#xf064;</i>
+        </button>
+        <button type="button" class="btn btn-outline-dark round-btn" matTooltip="Clear the field" mat-raised-button>
+          <i style="font-size: 15px" class="fa">&#xf021;</i>
+        </button>
+        <!-- </div> -->
+      </form>
+      <!-- stored comments -->
+      <div *ngFor="let review of reviewList">
+        <div class="user-avatar">
+          <i style="font-size: 15px" class="fa">&#xf007;<b>{{ review.reviewerEmailId }}</b></i>
+
+          <!-- <img src="" alt="" class="img-responsive user-avatar" /> -->
+        </div>
+        <div>
+          <p style="margin-left: 10px">{{ review.comment }}</p>
+        </div>
+      </div>
+      <!-- <mat-card>
+          <mat-card-header *ngFor="let reply of review.reply">
+            <div class="user-avatar">
+              <i style="font-size: 36px" class="fa">&#xf007;</i>
+               <img src="" alt="" class="img-responsive user-avatar" /> 
+            </div>
+            <div>
+              <p>{{ reply.comment }}</p>
+              <hr class="comment-hr" />
+            </div>
+          </mat-card-header>
+        </mat-card> -->
+    </mat-card-content>
+  </mat-card>
+</div>

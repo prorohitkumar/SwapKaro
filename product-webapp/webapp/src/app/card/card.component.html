@@ -1,0 +1,42 @@
+<div class="heading" style="background-color: #022E57; color: white;">
+  <h2 mat-dialog-title fxFlex="50%">Payment Card</h2>
+  <i style="font-size: 24px;" class="fa close-icon" (click)="closeDialog()" fxFlex="50%">&#xf00d;</i>
+</div>
+<mat-dialog-content>
+  <div>
+    <h2 class="heading">Available Barter Coins: &nbsp; {{availableBarterCoin}} &nbsp; <img
+        src="assets\image\availableCoins.jpg" alt="" width="30px" height="30px" /> </h2>
+  </div>
+  <div>
+    <mat-form-field fxFlex="100%" appearance="outline">
+      <mat-label>Account Holder Name</mat-label>
+      <input matInput required [(ngModel)]="holderName">
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field fxFlex="100%" appearance="outline">
+      <mat-label>Card Number</mat-label>
+      <input matInput required [(ngModel)]="cardNo">
+    </mat-form-field>
+  </div>
+  <div fxLayoutGap="2%">
+    <mat-form-field fxFlex="49%" appearance="outline">
+      <mat-label>Expiry Month</mat-label>
+      <input matInput required [(ngModel)]="expiry">
+    </mat-form-field>
+    <mat-form-field fxFlex="49%" appearance="outline">
+      <mat-label>CVV</mat-label>
+      <input matInput required [(ngModel)]="cvv">
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field fxFlex="100%" appearance="outline">
+      <mat-label>Amount</mat-label>
+      <input matInput required [(ngModel)]="amount">
+    </mat-form-field>
+  </div>
+</mat-dialog-content>
+<!-- <div id="button"> -->
+  <!-- <button mat-button mat-dialog-close style="float: left; cursor: pointer;" (click)="withdraw('Amount have withdrawn successfully','Dissmiss')"[disabled]="availableBarterCoin<600">Withdraw</button> -->
+  <button mat-button mat-dialog-close (click)="diposit('Amount have diposited successfully','Dissmiss')">Deposit</button>
+<!-- </div> -->

@@ -1,0 +1,36 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.my-custom-dialog-class .mat-dialog-container {
+  padding: 0;
+}
+
+.mat-menu-content {
+  width: 180px !important;
+}
+
+.mat-list-item-content {
+  border-radius: 5px;
+  margin: 0 8px;
+}
+
+.mat-list-item-content:hover {
+  background: #2c3344 !important;
+}
